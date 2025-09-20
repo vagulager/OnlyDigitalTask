@@ -1,0 +1,44 @@
+@use 'normalize';
+
+:root {
+  --container-width: 1440px;
+  --container-top-padding: 170px;
+  --container-right-padding: 80px;
+  --container-bottom-padding: 104px;
+  --container-left-padding: 80px;
+  --container-shift: 80px;
+  --color-bg: #F4F5F9;
+  --color-primary: #42567A;
+  --color-blue: #3877EE;
+  --color-iris: #5D5FEF;
+  --color-fuschia: #EF5DA8;
+  --color-border-50: rgba(66, 86, 122, .5);
+  --color-border-10: rgba(66, 86, 122, .1);
+  --color-border-gray: #C7CDD9;
+  --shadow: 0px 0px 15px rgba(56, 119, 238, .1);
+}
+
+html {
+  height: 100%;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'PT Sans';
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  @media (max-width: 1023px) and (orientation: landscape) {
+    height: auto;
+  }
+}

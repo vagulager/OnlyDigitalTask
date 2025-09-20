@@ -1,0 +1,20 @@
+.digit {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 200px;
+  line-height: 0.8;
+  letter-spacing: -2px;
+
+  &[data-variant="min"] {
+    color: var(--color-iris);
+  }
+
+  &[data-variant="max"] {
+    color: var(--color-fuschia);
+  }
+
+  @media (max-width: 1023px) {
+    font-size: 56px;
+    line-height: 1.3215;
+  }
+}

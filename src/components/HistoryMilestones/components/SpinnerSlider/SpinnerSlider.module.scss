@@ -1,0 +1,223 @@
+.spinner {
+  position: relative;
+  width: 530px;
+  height: 530px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-10);
+  pointer-events: none;
+  margin: 0 auto;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: auto;
+    height: auto;
+    border: none;
+    pointer-events: all;
+  }
+
+  &Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @media (max-width: 1023px) {
+      position: static;
+      padding: 56px 0 57px;
+      order: 0;
+      border-bottom: 1px solid var(--color-border-gray);
+    }
+
+    @media (min-width: 1024px) {
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: calc(-1 * var(--container-right-padding));
+        margin: auto;
+        width: calc(100% + var(--container-right-padding) + var(--container-left-padding));
+        height: 1px;
+        background-color: var(--color-border-10);
+      }
+    }
+  }
+
+  &Circle {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s;
+    transform: rotate(var(--rotate)) scale(1.01);
+
+    @media (max-width: 1023px) {
+      position: relative;
+      transform: none;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .point {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    top: -26px;
+    z-index: 11;
+    border: none;
+    outline: none;
+    background: none;
+    width: 56px;
+    height: 56px;
+    pointer-events: all;
+    z-index: 11;
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+    transition: transform .3s;
+    transform: rotate(var(--rotate)) scale(.25);
+    padding: 0;
+    color: var(--color-primary);
+
+    &Inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transform: scale(.424);
+      transition: transform .2s, background-color .2s;
+      background-color: var(--color-primary);
+      border: 1px solid var(--color-border-50);
+      border-radius: 50%;
+    }
+
+    &Id {
+      position: absolute;
+      opacity: 0;
+      transition: opacity .15s;
+    }
+
+    &Title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: calc(100% + 20px);
+      bottom: 0;
+      margin: auto;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity .06s;
+
+      @media (max-width: 1023px) {
+        display: none;
+      }
+    }
+    
+    &:hover,
+    &Active {
+      transform: rotate(var(--rotate)) scale(1);
+      
+      .point {
+        &Id {
+          opacity: 1;
+        }
+
+        &Title {
+          transition: opacity .2s .35s;
+        }
+
+        &Inner {
+          transform: scale(1);
+          background-color: var(--color-bg);
+        }
+      }
+    }
+
+    &:hover {
+      transition: transform .6s;
+    }
+
+    &Active {
+      pointer-events: none;
+
+      .point {
+        &Title {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .point {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    opacity: .4;
+    transition: opacity .15s;
+    background: none;
+
+    &Id, &Title {
+      display: none;
+    }
+
+    &Inner {
+      width: 100%;
+      height: 100%;
+      transform: scale(.5);
+      background-color: var(--color-primary);
+      border-radius: 50%;
+    }
+
+    &Active {
+      opacity: 1;
+    }
+  }
+}
+
+.years {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  max-width: 973px;
+  width: 100%;
+  margin-left: -33px;
+
+  @media (min-width: 1024px) {
+    position: absolute;
+  }
+  
+  @media (max-width: 1023px) {
+    margin: 0;
+    gap: 20px;
+    max-width: 100%;
+  }
+}

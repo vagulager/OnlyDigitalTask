@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "build",
+    "lib": ["dom", "esnext"],
+    "typeRoots": ["node_modules/@types", "src/types"],
+    "target": "es5",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "nodenext",
+    "isolatedModules": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noEmit": false,
+    "jsx": "react-jsx"
+  },
+  "exclude": ["node_modules", "build", "webpack.*.js", "*.config.js"]
+}
